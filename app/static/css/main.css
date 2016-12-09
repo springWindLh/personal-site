@@ -1,0 +1,93 @@
+body {
+    background-color: rgb(64, 49, 49);
+    font-family: '微软雅黑';
+}
+
+ a:hover,a:link,a:visited,a:active  {
+    text-decoration: none;
+    color: black;
+}
+
+.writeBtn{
+    position: fixed;top:3.2em;right: 0.1em;z-index: 999;
+}
+
+.writeBtn:hover,.writeBtn:link,.writeBtn:visited,.writeBtn:active  {
+    text-decoration: none;
+    color: #e0d6ae;
+}
+
+.jumpLink:hover,.jumpLink:link,.jumpLink:visited,.jumpLink:active  {
+    text-decoration: none;
+    color: #d59577;
+}
+
+.webuploader-pick{
+    background-color: rgba(99, 53, 30, 0.88);
+    color: #d0d2ca;
+}
+
+.bg-red {
+    background-color: #bd8c7d; /*189 140 125*/
+}
+
+.bg-yellow {
+    background-color: #d1bfa7; /*209 191 167*/
+}
+
+.bg-gray {
+    background-color: #8e8e90; /*142 142 144*/
+}
+
+.bg-black {
+    background-color: #49494b; /*73 73 75*/
+}
+
+.bg-blue {
+    background-color: #3a4660; /*58 70 96*/
+}
+.bg-white{
+    background-color: #f2eadd;/*242 234 221*/
+}
+
+/*cd-top --start--*/
+.cd-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-align: center;
+    color: white !important;
+    padding-top: 6px;
+    white-space: nowrap;
+    background: #bd8c7d;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    opacity: .5;
+}
+.no-touch .cd-top:hover {
+    background-color: #e86256;
+    opacity: 1;
+}
+/*cd-top --end--*/
