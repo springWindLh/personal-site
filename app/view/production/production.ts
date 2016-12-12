@@ -8,6 +8,6 @@ import {Component} from "@angular/core";
   templateUrl:'production.html'
 })
 
-export class productionPage{
+export class ProductionPage{
 
 }

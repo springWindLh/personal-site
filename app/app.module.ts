@@ -3,10 +3,10 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
 import {RouterModule} from "@angular/router";
 import {ResumePage} from "./view/resume/resume";
-import {productionPage} from "./view/production/production";
+import {ProductionPage} from "./view/production/production";
 import {MenuPage} from "./view/menu/menu";
-import {ContactPage} from "./view/contact/contact";
 import {ProfilePage} from "./view/profile/profile";
+import {MessagePage} from "./view/message/message";
 
 @NgModule({
   imports: [
@@ -18,11 +18,11 @@ import {ProfilePage} from "./view/profile/profile";
       },
       {
         path: 'production',
-        component: productionPage
+        component: ProductionPage
       },
       {
-        path: 'contact',
-        component: ContactPage
+        path: 'message',
+        component: MessagePage
       }
     ])
   ],
@@ -31,8 +31,8 @@ import {ProfilePage} from "./view/profile/profile";
     MenuPage,
     ProfilePage,
     ResumePage,
-    productionPage,
-    ContactPage
+    ProductionPage,
+    MessagePage
   ],
   bootstrap: [AppComponent]
 })
