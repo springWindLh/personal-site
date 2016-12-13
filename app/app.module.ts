@@ -7,6 +7,7 @@ import {ProductionPage} from "./view/production/production";
 import {MenuPage} from "./view/menu/menu";
 import {ProfilePage} from "./view/profile/profile";
 import {MessagePage} from "./view/message/message";
+import {ShortTimePipe} from "./pipe/shortTime.pipe";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {MessagePage} from "./view/message/message";
     ProfilePage,
     ResumePage,
     ProductionPage,
-    MessagePage
+    MessagePage,
+    ShortTimePipe
   ],
   bootstrap: [AppComponent]
 })
