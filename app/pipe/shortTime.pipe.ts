@@ -7,7 +7,7 @@ export class ShortTimePipe implements PipeTransform {
   constructor() {
   }
 
-  transform(value) {
+  transform(value:any) {
     let time = new Date(value);
     let milliSenconds = new Date().getTime();
     let spacing = (milliSenconds - value) / 1000;//获取时间差（秒）

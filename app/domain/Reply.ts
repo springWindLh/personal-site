@@ -6,7 +6,10 @@ export class Reply{
   content:string;
   messageId:number;
 
-  constructor(){
 
+  constructor(nickName: string, content: string, messageId: number) {
+    this.nickName = nickName;
+    this.content = content;
+    this.messageId = messageId;
   }
 }

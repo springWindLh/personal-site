@@ -5,7 +5,9 @@ export class Message{
   nickName:string;
   content:string;
 
-  constructor(){
 
+  constructor(nickName: string, content: string) {
+    this.nickName = nickName;
+    this.content = content;
   }
 }

@@ -7,21 +7,23 @@ import {MessageService} from "../../service/messageService";
 import {ReplyService} from "../../service/replyService";
 import {Message} from "../../domain/Message";
 import {Query} from "../../service/util/QueryUtil";
+declare var Materialize:any;
 @Component({
   moduleId: module.id,
   selector: 'message-page',
   templateUrl: 'message.html',
   providers: [MessageService, ReplyService]
 })
-declare var Materialize;
+
 export class MessagePage implements OnInit {
   @ViewChild('replyArea') replyArea: ElementRef;
-  messages = [];
+  messages:any[] = [];
   message: Message;
   reply: Reply;
   query: Query = new Query(1, 10);
 
   constructor(private messageService: MessageService, private replyService: ReplyService) {
+
   }
 
 
@@ -46,12 +48,12 @@ export class MessagePage implements OnInit {
     }
   }
 
-  saveReply(replies) {
+  saveReply(replies:any) {
     this.replyService.save(this.reply).subscribe(res=> {
         Materialize.toast(res.msg, 2000);
         if (res.code) {
           replies.push(res.data);
-          this.reply = new Reply();
+          // this.reply = new Reply();
           this.replyArea.nativeElement.css('display', 'none');
         }
       },
@@ -66,7 +68,7 @@ export class MessagePage implements OnInit {
         Materialize.toast(res.msg, 2000);
         if (res.code) {
           this.messages.unshift(res.data);
-          this.message = new Message();
+          // this.message = new Message();
         }
       },
       error=> {

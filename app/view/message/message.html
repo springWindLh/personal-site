@@ -9,14 +9,16 @@
         <a class="grey-text" (click)="showReplyArea()"></a>
       </p>
     </div>
+
     <div style="display: none;" #replyArea>
-      <p><label>回复：{{!message.nickName ? '' : message.nickName}}</label></p>
+      <p><label>回复：{{!msg.nickName ? '' : msg.nickName}}</label></p>
       <div>
         <input type="text" class="width100" placeholder="昵称" [(ngModel)]="reply.nickName">
-        <input type="text" [(ngModel)]="reply.content" placeholder="回复内容">
+        <!--<input type="text" [(ngModel)]="reply.content" placeholder="回复内容">-->
         <button type="button" class="waves-button-input waves-light" (click)="saveReply(msg.replies)">回复</button>
       </div>
     </div>
+
     <div class="col s10 offset-2">
       <div class="row valign-wrapper" *ngFor="let rep of msg.replies">
         <p>{{rep.content}}</p>
@@ -25,12 +27,14 @@
         </p>
       </div>
     </div>
+
   </div>
 </div>
+
 <div>
-  <input type="text" class="width100" [(ngModel)]="message.nickName" placeholder="昵称">
+  <!--<input type="text" class="width100" [(ngModel)]="message.nickName" placeholder="昵称">-->
   <textarea rows="3"></textarea>
-  <button type="button" class="waves-button-input waves-light" [(ngModel)]="message.content" (click)="saveMessage()">
+  <!--<button type="button" class="waves-button-input waves-light" [(ngModel)]="message.content" (click)="saveMessage()">-->
     留言
-  </button>
+  <!--</button>-->
 </div>

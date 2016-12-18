@@ -8,10 +8,12 @@ import {MenuPage} from "./view/menu/menu";
 import {ProfilePage} from "./view/profile/profile";
 import {MessagePage} from "./view/message/message";
 import {ShortTimePipe} from "./pipe/shortTime.pipe";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'resume',
