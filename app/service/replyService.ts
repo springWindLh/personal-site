@@ -6,7 +6,7 @@ import {Http} from "@angular/http";
 import {Reply} from "../domain/Reply";
 @Injectable()
 export class ReplyService{
-  HTTP_URL = 'http://192.168.4.90:8080/rest';
+  HTTP_URL = 'http://192.168.1.8:8085/rest';
 
   constructor(private http: Http) {
   }

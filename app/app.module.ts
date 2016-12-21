@@ -9,11 +9,14 @@ import {ProfilePage} from "./view/profile/profile";
 import {MessagePage} from "./view/message/message";
 import {ShortTimePipe} from "./pipe/shortTime.pipe";
 import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import 'rxjs/Rx';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: 'resume',

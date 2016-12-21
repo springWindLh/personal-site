@@ -18,9 +18,9 @@ declare var Materialize:any;
 export class MessagePage implements OnInit {
   @ViewChild('replyArea') replyArea: ElementRef;
   messages:any[] = [];
-  message: Message;
-  reply: Reply;
-  query: Query = new Query(1, 10);
+  message: Message = new Message("","","");
+  reply: Reply = new Reply("","",-1);
+  query: Query = new Query(0, 10);
 
   constructor(private messageService: MessageService, private replyService: ReplyService) {
 
@@ -29,9 +29,9 @@ export class MessagePage implements OnInit {
 
   ngOnInit(): void {
     this.messageService.list(this.query).subscribe(res=> {
-        if (res.code) {
+        console.log(res);
           this.messages = res.content;
-        }
+        console.log(this.messages);
       },
       error=> {
         Materialize.toast('网络错误', 2000);
@@ -68,7 +68,7 @@ export class MessagePage implements OnInit {
         Materialize.toast(res.msg, 2000);
         if (res.code) {
           this.messages.unshift(res.data);
-          // this.message = new Message();
+          this.message = new Message("","","");
         }
       },
       error=> {

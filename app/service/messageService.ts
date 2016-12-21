@@ -9,13 +9,13 @@ import {Message} from "../domain/Message";
 import {Observable} from "rxjs";
 @Injectable()
 export class MessageService {
-  HTTP_URL = 'http://192.168.4.90:8080/rest';
+  HTTP_URL = 'http://192.168.1.8:8085/rest';
 
   constructor(private http: Http) {
   }
 
   list(query: Query):Observable<any> {
-    return this.http.get(this.HTTP_URL + '/message/list', PageUtil.getPageParams(query))
+    return this.http.get(this.HTTP_URL + '/message/list', {search:PageUtil.getPageParams(query)})
       .map(res=>res.json().data);
   }
 

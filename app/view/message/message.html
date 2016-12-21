@@ -1,40 +1,50 @@
-<div class="card-panel grey lighten-5 z-depth-1">
-  <div class="row valign-wrapper" *ngFor="let msg of messages">
-    <div>
-      <p class="black-text">
-        {{msg.content}}
-      </p>
-      <p>
-        <small class="grey-text margin-right20">{{msg.createdTime | shortTime}}</small>
-        <a class="grey-text" (click)="showReplyArea()"></a>
-      </p>
-    </div>
-
-    <div style="display: none;" #replyArea>
-      <p><label>回复：{{!msg.nickName ? '' : msg.nickName}}</label></p>
-      <div>
-        <input type="text" class="width100" placeholder="昵称" [(ngModel)]="reply.nickName">
-        <!--<input type="text" [(ngModel)]="reply.content" placeholder="回复内容">-->
-        <button type="button" class="waves-button-input waves-light" (click)="saveReply(msg.replies)">回复</button>
-      </div>
-    </div>
-
-    <div class="col s10 offset-2">
-      <div class="row valign-wrapper" *ngFor="let rep of msg.replies">
-        <p>{{rep.content}}</p>
-        <p>
-          <small class="grey-text margin-right20">{{rep.createdTime | shortTime}}</small>
-        </p>
-      </div>
-    </div>
-
+<div class="row valign-wrapper" *ngFor="let msg of messages">
+  <div>
+    <p class="black-text">
+      {{msg.content}}
+    </p>
+    <p>
+      <small class="grey-text margin-right20">{{msg.createdTime | shortTime}}</small>
+      <a class="grey-text" (click)="showReplyArea()"></a>
+    </p>
   </div>
+
+  <div style="display: none;" #replyArea>
+    <p><label>回复：{{!msg.nickName ? '' : msg.nickName}}</label></p>
+    <div>
+      <input type="text" class="width100" placeholder="昵称" name="replyNickName" [(ngModel)]="reply.nickName">
+      <input type="text" name="replyContent" [(ngModel)]="reply.content" placeholder="回复内容">
+      <button type="button" class="waves-button-input waves-light" (click)="saveReply(msg.replies)">回复</button>
+    </div>
+  </div>
+
+  <div class="col s10 offset-2">
+    <div class="row valign-wrapper" *ngFor="let rep of msg.replies">
+      <p>{{rep.content}}</p>
+      <p>
+        <small class="grey-text margin-right20">{{rep.createdTime | shortTime}}</small>
+      </p>
+    </div>
+  </div>
+
 </div>
 
 <div>
-  <!--<input type="text" class="width100" [(ngModel)]="message.nickName" placeholder="昵称">-->
-  <textarea rows="3"></textarea>
-  <!--<button type="button" class="waves-button-input waves-light" [(ngModel)]="message.content" (click)="saveMessage()">-->
-    留言
-  <!--</button>-->
+  <div class="row">
+    <div class="input-field col s12 m6">
+      <input type="text" class="width100" name="messageNickName" [(ngModel)]="message.nickName">
+      <label>昵称</label>
+    </div>
+    <div class="input-field col s12 m6">
+      <input type="email" name="email" [(ngModel)]="message.email">
+      <label>邮箱</label>
+    </div>
+    <div class="input-field col s12 m12">
+      <textarea rows="3" class="materialize-textarea" [(ngModel)]="message.content"></textarea>
+      <label>内容</label>
+    </div>
+  </div>
+  <button type="button" [disabled]="!message.content" class="waves-effect waves-light red lighten-2 btn width100 size16" style="margin-left: 0.7em;" (click)="saveMessage()">
+    留&nbsp;言
+  </button>
 </div>
