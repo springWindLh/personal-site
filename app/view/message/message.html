@@ -1,16 +1,17 @@
 <div class="row valign-wrapper" *ngFor="let msg of messages">
   <div>
+    <p><label>{{msg.nickName || '匿名'}}</label></p>
     <p class="black-text">
       {{msg.content}}
     </p>
     <p>
       <small class="grey-text margin-right20">{{msg.createdTime | shortTime}}</small>
-      <a class="grey-text" (click)="showReplyArea()"></a>
+      <a class="grey-text" (click)="showReplyArea()"><i class="fa fa-comment-o"></i> </a>
     </p>
   </div>
 
   <div style="display: none;" #replyArea>
-    <p><label>回复：{{!msg.nickName ? '' : msg.nickName}}</label></p>
+    <p><label>回复：{{msg.nickName || ''}}</label></p>
     <div>
       <input type="text" class="width100" placeholder="昵称" name="replyNickName" [(ngModel)]="reply.nickName">
       <input type="text" name="replyContent" [(ngModel)]="reply.content" placeholder="回复内容">
