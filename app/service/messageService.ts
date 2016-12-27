@@ -9,7 +9,7 @@ import {Message} from "../domain/Message";
 import {Observable} from "rxjs";
 @Injectable()
 export class MessageService {
-  HTTP_URL = 'http://192.168.1.8:8085/rest';
+  HTTP_URL = 'http://192.168.4.90:8085/rest';
 
   constructor(private http: Http) {
   }

@@ -5,6 +5,7 @@ export class Message {
   nickName: string;
   email: string;
   content: string;
+  replies: any[];
 
 
   constructor(nickName: string, email: string, content: string) {
