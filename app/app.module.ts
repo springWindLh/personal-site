@@ -9,7 +9,7 @@ import {ProfilePage} from "./view/profile/profile";
 import {MessagePage} from "./view/message/message";
 import {ShortTimePipe} from "./pipe/shortTime.pipe";
 import {FormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
+import {HttpModule, JsonpModule} from "@angular/http";
 import 'rxjs/Rx';
 
 @NgModule({
@@ -17,6 +17,7 @@ import 'rxjs/Rx';
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     RouterModule.forRoot([
       {
         path: 'resume',

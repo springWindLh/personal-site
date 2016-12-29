@@ -7,8 +7,10 @@ import {MessageService} from "../../service/messageService";
 import {ReplyService} from "../../service/replyService";
 import {Message} from "../../domain/Message";
 import {Query} from "../../service/util/QueryUtil";
+import {Jsonp} from "@angular/http";
 declare var Materialize: any;
 declare var $: any;
+declare var remote_ip_info: any;
 @Component({
   moduleId: module.id,
   selector: 'message-page',
@@ -27,7 +29,7 @@ export class MessagePage implements OnInit {
     last: false
   };
 
-  constructor(private messageService: MessageService, private replyService: ReplyService) {
+  constructor(private messageService: MessageService, private replyService: ReplyService, private jsonp: Jsonp) {
 
   }
 
@@ -43,6 +45,7 @@ export class MessagePage implements OnInit {
         this.messages = res.content;
         this.pageState.first = res.first;
         this.pageState.last = res.last;
+        this.buildAddress();
       },
       error=> {
         Materialize.toast('网络错误', 2000);
@@ -50,7 +53,24 @@ export class MessagePage implements OnInit {
     )
   }
 
-  openReplyModal(message:any) {
+  getAddress(message: any) {
+    $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip=' + message.ip, function () {
+      if (remote_ip_info.ret == 1) {
+        message.address = remote_ip_info.province + remote_ip_info.city;
+      } else {
+        message.address = '未知';
+      }
+    });
+  }
+
+  buildAddress() {
+    for (let i = 0; i < this.messages.length; i++) {
+      this.messages[i].address = '未知';
+      this.getAddress(this.messages[i]);
+    }
+  }
+
+  openReplyModal(message: any) {
     $('#modal1').modal('open');
     this.replyMessage = message;
     this.reply.messageId = message.id;
@@ -89,12 +109,12 @@ export class MessagePage implements OnInit {
     )
   }
 
-  nextPage(){
+  nextPage() {
     this.query.page += 1;
     this.listMessages(this.query);
   }
 
-  previousPage(){
+  previousPage() {
     this.query.page -= 1;
     this.listMessages(this.query);
   }

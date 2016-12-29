@@ -11,6 +11,7 @@
           <small class="grey-text margin-right20">{{msg.createdTime | shortTime}}</small>
           <a (click)="openReplyModal(msg)" class="grey-text pointer">
             <i class="fa fa-comment-o"></i><small *ngIf="msg.replies.length > 0">&nbsp;{{msg.replies.length}}</small> </a>
+          <small class="grey-text margin-left20"><i class="fa fa-map-marker"></i>&nbsp;<span>{{msg.address}}</span></small>
         </p>
         <div *ngIf="msg.replies.length > 0" class="divider"></div>
       </div>
@@ -22,6 +23,7 @@
           <p>
             <small class="grey-text margin-right20">{{rep.createdTime | shortTime}}</small>
           </p>
+          <hr style="height:1px;border:none;border-top: 1px dashed #dbdbdb;">
         </div>
       </div>
 
